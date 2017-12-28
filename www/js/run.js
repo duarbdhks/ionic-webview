@@ -30,47 +30,11 @@ define(['app'], function (app) {
             }, 0);
 
             //종료 팝업
-            var BackButton = 0;
-            /*
             $ionicPlatform.registerBackButtonAction(function (e) {
-
-                function showConfirm() {
-                    var confirmPopup = $ionicPopup.show({
-                        title : '알림',
-                        template : '프리모아를 종료하시겠습니까?',
-                        buttons : [{
-                            text : '취소',
-                            type: 'button-cancel',
-                        }, {
-                            text : '확인',
-                            type: 'button-confirm',
-                            onTap : function() {
-                                ionic.Platform.exitApp();
-                            }
-                        }]
-                    });
+                if($ionicHistory.backView() == null || $ionicHistory.currentStateName() == 'main') {
+                    navigator.app.exitApp();
                 }
-
-                if ($ionicHistory.currentStateName() == 'index' || $ionicHistory.currentStateName() == 'tab.calendar') {
-                    if (BackButton == 0) {
-                        BackButton++;
-                        showConfirm();
-                        $timeout(function() {
-                            BackButton = 0;
-                        }, 2500);
-                    }else{
-                        navigator.app.exitApp();
-                    }
-                }else{
-                    if($ionicHistory.backView() == null){
-                        $state.go('tab.calendar');
-                    }else{
-                        $ionicHistory.backView().go();
-                    }
-                }
-
             }, 100);
-            */
 
             $ionicPlatform.ready(function() {
                 if(window.cordova && window.cordova.plugins.Keyboard) {
@@ -104,7 +68,7 @@ define(['app'], function (app) {
                     });*/
 
                     window.plugins.OneSignal
-                        .startInit("077a0282-fe45-42e0-b85c-c4cb9cf8363e")
+                        .startInit("a57ee400-064a-49b4-af47-6a1d5545ff39")
                         .handleNotificationOpened(notificationOpenedCallback)
                         .endInit();
                 }

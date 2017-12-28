@@ -9,14 +9,14 @@ define(['app'], function (app) {
                 $stateProvider
                 .state('intro', {
                     url: "/slides",
-                    templateUrl: "/templates/slides.html",
+                    templateUrl: "templates/slides.html",
                     controller: 'SlidesController'
                 })
                 .state('main', {
                     url: "/main",
-                    templateUrl: "/templates/main.html",
+                    templateUrl: "templates/main.html",
                     controller: 'MainController'
-                })
+                });
 
             $urlRouterProvider.otherwise("/intro");
         }]);
